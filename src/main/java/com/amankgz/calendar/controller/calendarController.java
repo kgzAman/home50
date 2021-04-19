@@ -16,9 +16,15 @@ public class calendarController {
         this.service = calendarService;
         this.repository = calendarRepository;
     }
-    @GetMapping
+    @GetMapping("/")
     public String root(Model model) {
-        model.addAttribute("candidates", repository.findAll());
-        return "candidates";
+        model.addAttribute("mainPage", repository.findAll());
+        return "mainPage";
     }
+//
+//    @GetMapping("/")
+//    public String handleVotes(Model model) {
+//        model.addAttribute("mainPage", service.candidatesWithVotes());
+//        return "votes";
+//    }
 }
